@@ -1,0 +1,1 @@
+C:\Users\Sonya\AppData\Local\Programs\Python\Python311\python.exe manage.py runserver
