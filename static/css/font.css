@@ -1,0 +1,322 @@
+@font-face {
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Ubuntu'), url(http://example.com/fonts/ubuntu.woff) format('woff');
+}
+
+body {
+    font-family: bahnschrift;
+}
+
+
+.nav-link:hover {
+    color: #91C7BD;
+}
+
+.ts {
+	font-family: bahnschrift;
+	font-size: 25px;
+	color: #FFFFFF;
+	text-shadow: 
+		-0   -2px 2px #000000,
+		 0   -2px 2px #000000,
+		-0    2px 2px #000000,
+		 0    2px 2px #000000,
+		-2px -0   2px #000000,
+		 2px -0   2px #000000,
+		-2px  0   2px #000000,
+		 2px  0   2px #000000,
+		-1px -2px 2px #000000,
+		 1px -2px 2px #000000,
+		-1px  2px 2px #000000,
+		 1px  2px 2px #000000,
+		-2px -1px 2px #000000,
+		 2px -1px 2px #000000,
+		-2px  1px 2px #000000,
+		 2px  1px 2px #000000,
+		-2px -2px 2px #000000,
+		 2px -2px 2px #000000,
+		-2px  2px 2px #000000,
+		 2px  2px 2px #000000,
+		-2px -2px 2px #000000,
+		 2px -2px 2px #000000,
+		-2px  2px 2px #000000,
+		 2px  2px 2px #000000;
+}
+
+.ts-low {
+	font-family: bahnschrift;
+	font-size: 18px;
+	color: #FFFFFF;
+	text-shadow: 
+		-0   -2px 2px #000000,
+		 0   -2px 2px #000000,
+		-0    2px 2px #000000,
+		 0    2px 2px #000000,
+		-2px -0   2px #000000,
+		 2px -0   2px #000000,
+		-2px  0   2px #000000,
+		 2px  0   2px #000000,
+		-1px -2px 2px #000000,
+		 1px -2px 2px #000000,
+		-1px  2px 2px #000000,
+		 1px  2px 2px #000000,
+		-2px -1px 2px #000000,
+		 2px -1px 2px #000000,
+		-2px  1px 2px #000000,
+		 2px  1px 2px #000000,
+		-2px -2px 2px #000000,
+		 2px -2px 2px #000000,
+		-2px  2px 2px #000000,
+		 2px  2px 2px #000000,
+		-2px -2px 2px #000000,
+		 2px -2px 2px #000000,
+		-2px  2px 2px #000000,
+		 2px  2px 2px #000000;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.content {
+	box-sizing: border-box;
+	min-height: 100%;
+	padding-bottom: 90px;
+}
+footer {
+    bottom: 0;
+    width: 100%;
+  }
+
+body{
+    background-color: #f8f9fa ;
+
+   }
+
+
+.row-bord {
+    border: 2px solid #C2C4C5;
+    margin: 2%;
+}
+
+
+.row-bord-bot {
+    border-bottom: 2px solid #C2C4C5;
+}
+
+.row-bord-top {
+    border-top: 2px solid #C2C4C5;
+}
+
+
+.ava_review {
+    width: 80px;
+    height: 90px;
+    border-radius: 50%;
+    border: 1px black solid;
+}
+
+.low-img {
+    width: 300px;
+    height: 300px;
+    border-radius: 15%;
+    border:1px solid rgb(128, 128, 128);
+  }
+
+
+html {
+    height: 100%;
+  }
+  
+  body {
+    margin: 0;
+    /* Растягиваем body по высоте html */
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+  }
+
+
+  
+  .center {
+    transform: scale(.9);
+
+
+    align-items: center;
+  }
+  
+  .article-card {
+    width: 350px;
+    height: 220px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 300ms;
+  }
+  
+  .article-card:hover {
+    transform: translateY(-20px);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+
+  .my-img-hover {
+    border-radius: 10px;
+    transition: 1s;
+  }
+
+  .my-img-hover:hover {
+      transform: scale(1.04);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+  
+  .article-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .article-card .content {
+    box-sizing: border-box;
+    width: 100%;
+    position: absolute;
+    padding: 30px 20px 20px 20px;
+    height: auto;
+    bottom: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+  }
+  
+  .article-card .date,
+  .article-card .title {
+    margin: 0;
+  }
+  
+  .article-card .date {
+    font-size: 25px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 4px;
+  }
+  
+  .article-card .title {
+    font-size: 30px;
+    color: #fff;
+  }
+  
+
+
+  .card_img {
+    width: 200px;
+    height: 40px;
+  }
+  .ml {
+    margin-left: 10px;
+  }
+  footer {
+    bottom: 0;
+    width: 100%;
+  }
+  main {
+    background-color: #f8f9fa!important;
+  }
+
+  .my-btn {
+    border-color: #3D9FE7; 
+    color: #3D9FE7;
+  
+  }
+
+  .my-btn:hover {
+    border-color: #91C7BD ; 
+    color: #FFFFFF;
+    background-color: #91C7BD ;
+  
+  }
+
+  .my-btn-primary {
+    background-color: white;
+    border-color: #91C7BD; 
+    color: black;
+  
+  }
+
+  .my-btn-primary:hover {
+    border-color: #3D9FE7 ; 
+    color: #FFFFFF;
+    background-color: #3D9FE7 ;
+    
+  }
+
+  .my-btn-prim {
+    background-color: #3D9FE7;
+    border-color: #3D9FE7; 
+    color: #FFFFFF;
+
+  
+  }
+
+  .my-btn-succes {
+    background-color: white;
+    border-color: #91C7BD; 
+    color: #91C7BD;
+
+  
+  }
+
+  .my-btn-succes:hover {
+    background-color: #91C7BD;
+    border-color: #91C7BD; 
+    color: #FFFFFF;
+
+  
+  }
+
+
+  .my-btn-danger {
+    background-color: white;
+    border-color: #c79191; 
+    color: #c79191;
+
+  
+  }
+
+  .my-btn-danger:hover {
+    background-color: #c79191;
+    border-color: #c79191; 
+    color: #FFFFFF;
+
+  
+  }
+
+  .my-btn-warn {
+    background-color: white;
+    border-color: #c7ae91; 
+    color: #c7ae91;
+
+  
+  }
+
+  .my-btn-warn:hover {
+    background-color: #c7ae91;
+    border-color: #c7ae91; 
+    color: #FFFFFF;
+
+  
+  }
+  /* .my-btn-prim:hover {
+    border-color: #91C7BD ; 
+    color: #FFFFFF;
+    background-color: #91C7BD ;
+    
+  } */
+
+  .hov-name{
+    transition: .4s;
+  }
+  .hov-name:hover {
+    background-color: #d8d8d8;
+    transform: scale(1.04);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.103), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }

@@ -1,0 +1,63 @@
+{% extends 'secondSite/adminbase.html' %}
+{% load static %}
+{% block title %}KeysForAll{% endblock %}
+
+{% block content %}
+<main>
+
+    <div class="album py-5 bg-light">
+      <div class="container text-center" >
+        {% if order_info %}
+        {% for el in order_info %}
+            {% for game_name in game_info %}
+            {% if game_name.id == el.games%}
+            {% if el.id == order_pk %}
+
+        <div class="text-center mb-5"><h1> Покупка №{{ el.id }} | Игра: {{game_name.name}} | Пользователь: {{el.user}}</h1></div>
+            
+        <div class="row">
+          <div class="col-4">
+            <label for="firstName" class="form-label">Куплено: </label>
+            <input name="name" type="text" class="form-control" id="firstName" readonly value="{{el.created}}" >
+          </div>
+          <div class="col-4">
+            <label class="form-label">Ключ:</label>
+            <input name="phone" value="{{game_name.key}}" type="text" class="form-control" data-mask="phone" id="username" readonly  >
+          </div>
+          <div class="col-4">
+            <label class="form-label">Цена:</label>
+            <input name="phone" value="{{game_name.price}}" type="text" class="form-control" data-mask="phone" id="username" readonly >
+          </div>
+
+        </div>
+        <br> <br>
+            <div>
+              
+              <a href="{{ game_name.image }}">
+                
+                <img src="{% if game_name.image %} {{ game_name.image }} {%else%} {% static 'images/logo.png' %} {%endif%}" class="my-img-hover" width="600px" height="400px">
+              </a> 
+            </div>
+            <br> <br>
+            <div>
+              <p>
+                <strong><h5>Описание:</h5></strong>{{game_name.description}}
+              </p>
+            </div>
+            {%endif%}
+            {% endif %}
+            {% endfor%}
+
+        
+            
+      {%endfor%}
+      {%endif%}
+         
+          
+
+        </div>
+      </div>
+    </div>
+  
+  </main>
+{% endblock %}
