@@ -1,0 +1,54 @@
+{% extends 'mainSite/base.html' %}
+{% load static %}
+{% block title %}KeysForAll{% endblock %}
+
+{% block content %}
+<main>
+
+    <div class="album py-5 bg-light">
+      <div class="container">
+        <div class="text-center mb-5"><h1> Спасибо за покупку! | Игра: {{game_info.name}}</h1></div>
+        
+        <div class="row">
+          <div class="col-3">
+            <label for="firstName" class="form-label">Имя</label>
+            <input name="name" type="text" class="form-control" id="firstName" placeholder="" readonly value="{{user.get_username}}" >
+          </div>
+          <div class="col-3">
+            <label class="form-label">Номер телефона:</label>
+            <input name="phone" type="text" class="form-control" data-mask="phone" id="username" readonly placeholder="+7(999)999-99-99" value="{{order_info.phone}}">
+          </div>  
+          <div class="col-3">
+            <label class="form-label">Ключ:</label>
+            <input name="phone" type="text" class="form-control" data-mask="phone" id="username" readonly placeholder="+7(999)999-99-99" value="{{game_info.key}}">
+          </div>
+
+          <div class="col-3">
+            <label class="form-label">Цена:</label>
+            <input name="phone" type="text" class="form-control" data-mask="phone" id="username" readonly placeholder="+7(999)999-99-99" value="{{game_info.price}}">
+          </div>
+
+        </div>
+        <br> <br>
+            <div>
+            
+              <a href="{{ game_info.image.url }}">
+                
+                <img src="{% if game_info.image %} {{ game_info.image.url }} {%else%} {% static 'images/logo.png' %} {%endif%}" class="my-img-hover" width="600px" height="400px">
+              </a> 
+            </div>
+           
+
+        
+            
+      
+         
+          
+
+        </div>
+      </div>
+    </div>
+  
+  </main>
+{% endblock %}
+<div class="text-center mb-5"><h1> Покупка №{{ order_info.id }} | Игра: {{game_info.name}}</h1></div>

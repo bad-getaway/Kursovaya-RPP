@@ -1,0 +1,104 @@
+{% extends 'mainSite/base.html' %}
+
+{% block title %}KeysForAll{% endblock %}
+{% load static %}
+{% block content %}
+<main>
+
+    <div class="album py-5 bg-light">
+      <div class="container">
+        <div class="text-center mb-5"><h1>Оформление заказа</h1></div>
+
+            <form method="POST">
+              {% csrf_token %}
+              <div class="row">
+                <div class="col-3">
+                  <label for="firstName" class="form-label">Имя</label>
+                  <input name="name" type="text" class="form-control" id="firstName" placeholder="" readonly value="{{user.get_username}}" >
+                  <br>    <br>
+                  <label class="form-label">Номер карты:</label>
+                  <input name="numcard" type="text" class="form-control" data-mask="numcard" id="username" placeholder="4231-1233-1234-1251" value="">
+
+                  <label class="form-label">CVV код:</label>
+                  <input name="cvvcode" type="text" class="form-control" data-mask="cvvcode" id="username" placeholder="123" value="">
+                  <br><br><br><br><br>
+                  
+
+                </div>
+      
+                <div class="col-3">
+                  <label class="form-label">Номер телефона:</label>
+                  <input name="phone" type="text" class="form-control" data-mask="phone" id="username" placeholder="+7(999)999-99-99" value="">
+                  <br>    <br>
+                  <label class="form-label">Срок действия:</label>
+                  <input name="srok" type="text" class="form-control" data-mask="srok" id="username" placeholder="12/12" value="">
+                  <br>
+                  <button class="btn btn-primary btn-block mt-2 w-100" type="submit">Купить</button>
+                </div>
+
+
+                <div class="col-4">
+                  <span class="text-muted">К покупке:</span>
+                  
+                  <a href="{{ games.image.url }}">
+                    
+                    <img src="{% if games.image %} {{ games.image.url }} {%else%} {% static 'images/logo.png' %} {%endif%}" class="my-img-hover" width="600px" height="400px">
+                  </a> 
+                </div>
+              </div>
+
+            
+              
+
+            
+      
+              
+            </form>
+
+        </div>
+      </div>
+    </div>
+  
+  </main>
+
+  <script src="https://unpkg.com/imask"></script>
+      <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', () => {
+
+const mask = (dataValue, options) => { // создаем универсальную функцию
+  const elements = document.querySelectorAll(`[data-mask="${dataValue}"]`) // ищем поля ввода по селектору с переданным значением data-атрибута
+  if (!elements) return // если таких полей ввода нет, прерываем функцию
+
+  elements.forEach(el => { // для каждого из полей ввода
+    IMask(el, options) // инициализируем плагин imask для необходимых полей ввода с переданными параметрами маски
+  })
+}
+
+// Используем наше функцию mask для разных типов масок
+
+// Маска для номера телефона
+mask('phone', {
+  mask: '+{7}(000)000-00-00'
+})
+
+// Маска для почтового индекса
+mask('numcard', {
+  mask: '0000-0000-0000-0000' // шесть цифр
+})
+
+// Маска для почтового индекса
+mask('cvvcode', {
+  mask: '000' // шесть цифр
+})
+
+// Маска для почтового индекса
+mask('srok', {
+  mask: '00/00' // шесть цифр
+})
+
+
+
+})
+
+        </script>
+{% endblock %}

@@ -1,0 +1,131 @@
+{% extends 'mainSite/base.html' %}
+
+{% block title %}KeysForAll{% endblock %}
+{% load static %}
+{% block content %}
+<main>
+
+  <div class="container">
+    {% if games %}
+    <div class="mb-5 mt-5">
+      <h1>{{ games.name }}</h1>
+      <hr>
+      <div class="row">
+        <div class="col-6">
+          <a href="{{ games.image.url }}">
+            <img src="{% if games.image %} {{ games.image.url }} {%else%} {% static 'images/logo.png' %} {%endif%}" class="my-img-hover" width="600px" height="400px">
+          </a> 
+        </div>
+
+        <div class="col-6">
+          <p>Код товара: {{games.id}}</p>
+          <hr>
+          <h1>Описание товара</h1>
+          <p>{{games.description}}</p>
+          <hr>
+           <h1>Цена: {{games.price}} руб.</h1>
+          {% if order %}
+          <button class="btn btn-warning">У вас уже есть эта игра!</button>
+          {%else%}
+          <a href="{% url 'make_order' games.id %}"><button class="btn btn-primary">Купить</button></a>
+          {%endif%}
+        </div>
+
+      </div>
+     
+
+
+
+    {% else %}
+      <h1>Товар не существует!</h1>
+    {% endif %}
+  </div>
+
+
+
+
+
+</main>
+{% endblock %}
+
+
+
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5"><h1>Оформление заказа</h1></div>
+    <div class="row g-3">
+      <div class="col-md-5 col-lg-4 order-md-last">
+        <div class="col-md-5 col-lg-4 order-md-last">
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <img src="{{ product.image.url }}" alt="..." width="500" >
+            
+        </div>
+      </div>
+      <div class="col-md-7 col-lg-8">
+        {% if product %}
+              <div class="col-sm-12">
+                <label for="lastName" class="form-label">Наименование товара:</label>
+                <input name="second_name" type="text" class="form-control" id="lastName" placeholder="" value="{{ product.name }}" required="">
+              </div>
+
+
+              <div class="col-sm-3">
+                <label for="firstName" class="form-label">Цена</label>
+                <input name="name" type="text" class="form-control" id="firstName" placeholder="" value="{{ product.price }}" required="">
+              </div>
+    
+              <div class="col-12">
+                <label for="username" class="form-label">Описание</label>
+                <textarea name="description" id="" cols="102" rows="10">{{ product.description }}</textarea>
+              </div>
+
+              <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                {% csrf_token %}
+                {{ cart_product_form }}
+                <input type="submit" value="В корзину">
+              </form>
+
+           
+              <div>
+                
+                <h1>Отзывы</h1>
+                {% if review %}
+                {% for el in review %}
+                <label>Автор:</label>
+                <p>{{ el.author }}</p>
+
+                <label>Текст:</label>
+                <p>{{ el.text }}</p>
+
+                <label>Оценка:</label>
+                <p>{{ el.rating }}</p>
+                {% endfor %}
+              </div>
+        
+              {% else %}
+              <div>Отзывов нет</div>
+              {% endif %}
+
+              {% else %}
+              <h1>Товаров нет!</h1>
+            {% endif %}
+      </div>
+    </div>
+    
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

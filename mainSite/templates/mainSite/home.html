@@ -1,0 +1,36 @@
+{% extends 'mainSite/base.html' %}
+
+{% block title %}KeysForAll{% endblock %}
+
+{% block content %}
+<main>
+ 
+  {% if user.is_authenticated %}
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">KeysForAll</h1>
+        <p class="lead text-body-secondary">У нас вы можете купить любую игру по дешёвой цене!</p>
+        <p>
+          <a href="{% url 'catalog' %}" class="btn btn-primary my-2">В каталог</a>
+        </p>
+      </div>
+    </div>
+  </section>
+  {% else %}
+    <section class="py-5 text-center container">
+      <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="fw-light">KeysForAll</h1>
+          <p class="lead text-body-secondary">У нас вы можете купить любую игру по дешёвой цене! Но сначала авторизируйтесь</p>
+          <p>
+            <a href="{% url 'login_page' %}" class="btn btn-primary my-2">Вход</a>
+            <a href="{% url 'register' %}" class="btn btn-secondary my-2">Регистрация</a>
+          </p>
+        </div>
+      </div>
+    </section>
+    {% endif %}
+  
+</main>
+{% endblock %}
